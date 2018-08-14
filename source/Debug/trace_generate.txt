@@ -1,0 +1,224 @@
+Starting
+There are 0 images
+170 characters were drawn
+There are 170 left to add to textures
+Page 0 was created
+Adding colored images
+Sorting list of 0 candidates
+Duplicating the height array to all channels
+Adding monochrome images to channel 0
+Sorting list of 170 candidates
+There are 170 candidates left, and 0 holes to fill
+All holes have been filled
+currX is 0 and heights is 0
+tallest char is 17x15 and shortest char is 17x2
+GetNextIdealImageWidth() = 254
+Character [106] was added
+Character [54] was added
+Character [4] was added
+Character [84] was added
+Character [44] was added
+Character [138] was added
+Character [130] was added
+Character [127] was added
+Character [169] was added
+Character [120] was added
+Character [112] was added
+Character [104] was added
+Character [162] was added
+Character [157] was added
+Character [152] was added
+Character [74] was added
+Character [125] was added
+Character [124] was added
+Character [2] was added
+allTooWide = 0, drawn = 1
+There are 151 candidates left, and 0 holes to fill
+All holes have been filled
+currX is 0 and heights is 19
+tallest char is 17x10 and shortest char is 17x2
+GetNextIdealImageWidth() = 254
+Character [100] was added
+Character [32] was added
+Character [91] was added
+Character [5] was added
+Character [89] was added
+Character [61] was added
+Character [159] was added
+Character [156] was added
+Character [144] was added
+Character [126] was added
+Character [121] was added
+Character [55] was added
+Character [21] was added
+Character [111] was added
+Character [113] was added
+Character [114] was added
+Character [115] was added
+Character [45] was added
+Character [46] was added
+Character [117] was added
+Character [48] was added
+Character [49] was added
+allTooWide = 0, drawn = 1
+There are 129 candidates left, and 0 holes to fill
+All holes have been filled
+currX is 0 and heights is 38
+tallest char is 17x9 and shortest char is 17x2
+GetNextIdealImageWidth() = 254
+Character [50] was added
+Character [51] was added
+Character [52] was added
+Character [15] was added
+Character [53] was added
+Character [56] was added
+Character [118] was added
+Character [19] was added
+Character [122] was added
+Character [129] was added
+Character [131] was added
+Character [24] was added
+Character [136] was added
+Character [42] was added
+Character [93] was added
+Character [94] was added
+Character [101] was added
+Character [102] was added
+Character [108] was added
+Character [33] was added
+Character [34] was added
+Character [35] was added
+Character [109] was added
+allTooWide = 0, drawn = 1
+There are 106 candidates left, and 0 holes to fill
+All holes have been filled
+currX is 0 and heights is 57
+tallest char is 17x9 and shortest char is 17x2
+GetNextIdealImageWidth() = 254
+Character [110] was added
+Character [38] was added
+Character [39] was added
+Character [17] was added
+Character [107] was added
+Character [3] was added
+Character [158] was added
+Character [155] was added
+Character [154] was added
+Character [153] was added
+Character [90] was added
+Character [151] was added
+Character [85] was added
+Character [147] was added
+Character [14] was added
+Character [145] was added
+Character [82] was added
+Character [18] was added
+Character [20] was added
+Character [22] was added
+Character [23] was added
+Character [143] was added
+Character [142] was added
+Character [141] was added
+Character [96] was added
+allTooWide = 0, drawn = 1
+There are 81 candidates left, and 0 holes to fill
+All holes have been filled
+currX is 0 and heights is 76
+tallest char is 17x8 and shortest char is 17x2
+GetNextIdealImageWidth() = 254
+Character [140] was added
+Character [30] was added
+Character [31] was added
+Character [86] was added
+Character [83] was added
+Character [132] was added
+Character [128] was added
+Character [72] was added
+Character [119] was added
+Character [47] was added
+Character [57] was added
+Character [75] was added
+Character [59] was added
+Character [123] was added
+Character [62] was added
+Character [116] was added
+Character [80] was added
+Character [98] was added
+Character [95] was added
+Character [164] was added
+Character [10] was added
+Character [37] was added
+Character [28] was added
+Character [36] was added
+Character [43] was added
+Character [103] was added
+allTooWide = 0, drawn = 1
+There are 55 candidates left, and 0 holes to fill
+All holes have been filled
+currX is 0 and heights is 95
+tallest char is 17x7 and shortest char is 17x2
+GetNextIdealImageWidth() = 254
+Character [64] was added
+Character [92] was added
+Character [87] was added
+Character [97] was added
+Character [105] was added
+Character [78] was added
+Character [77] was added
+Character [99] was added
+Character [76] was added
+Character [133] was added
+Character [134] was added
+Character [137] was added
+Character [139] was added
+Character [69] was added
+Character [146] was added
+Character [149] was added
+Character [150] was added
+Character [68] was added
+Character [148] was added
+Character [66] was added
+Character [65] was added
+Character [160] was added
+Character [161] was added
+Character [63] was added
+Character [163] was added
+Character [12] was added
+Character [81] was added
+Character [9] was added
+Character [29] was added
+allTooWide = 0, drawn = 1
+There are 26 candidates left, and 1 holes to fill
+All holes have been filled
+currX is 0 and heights is 114
+tallest char is 17x6 and shortest char is 17x2
+GetNextIdealImageWidth() = 254
+Character [135] was added
+Character [167] was added
+Character [168] was added
+Character [67] was added
+Character [27] was added
+Character [16] was added
+Character [41] was added
+Character [71] was added
+Character [79] was added
+Character [0] was added
+Character [13] was added
+Character [40] was added
+Character [1] was added
+Character [26] was added
+Character [25] was added
+Character [11] was added
+Character [8] was added
+Character [7] was added
+Character [60] was added
+Character [6] was added
+Character [58] was added
+Character [70] was added
+Character [73] was added
+Character [165] was added
+Character [166] was added
+Character [88] was added
+allTooWide = 0, drawn = 1
+Compacting list of remaining characters
+Finished

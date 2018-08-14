@@ -1,7 +1,7 @@
-.svn
-source\Release
-source\Debug
-source\.vs
-bmfont_com\Debug
-bmfont_com\Release
-bmfont_com\.vs
+.svn/
+source/Release/
+source/Debug/
+source/.vs/
+bmfont_com/Debug/
+bmfont_com/Release/
+bmfont_com/.vs/

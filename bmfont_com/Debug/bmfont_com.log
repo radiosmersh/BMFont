@@ -1,3 +1,0 @@
-﻿  main.cpp
-main.obj : warning LNK4075: не учитывается "/EDITANDCONTINUE" из-за спецификации "/SAFESEH"
-  bmfont_com.vcxproj -> D:\trunk\source\Debug\bmfont.com

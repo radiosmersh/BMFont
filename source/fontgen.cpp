@@ -1818,7 +1818,7 @@ int CFontGen::SaveFont(const char *szFile)
 	if( invalidCharGlyph )
 	{
 		if (fontDescFormat == 3)
-			fprintf(f, "%d %d %d %d %d %d %d %d %d\r\n", n, 0, invalidCharGlyph->m_width, 0, 1, invalidCharGlyph->m_x, invalidCharGlyph->m_y, invalidCharGlyph->m_x + invalidCharGlyph->m_width, invalidCharGlyph->m_y + invalidCharGlyph->m_height);
+			fprintf(f, "%d %d %.1f %d %.0f %.1f %.1f %.1f %.1f\r\n", n, 0, invalidCharGlyph->m_width / 2.0, 0, floor(invalidCharGlyph->m_yoffset / 2.0), invalidCharGlyph->m_x / 2.0, floor(invalidCharGlyph->m_y / 2.0), floor((invalidCharGlyph->m_x + invalidCharGlyph->m_width) / 2.0), floor((invalidCharGlyph->m_y + invalidCharGlyph->m_height) / 2.0));
 		else if( fontDescFormat == 1 )
 			fprintf(f, "    <char id=\"%d\" x=\"%d\" y=\"%d\" width=\"%d\" height=\"%d\" xoffset=\"%d\" yoffset=\"%d\" xadvance=\"%d\" page=\"%d\" chnl=\"%d\" />\r\n", -1, invalidCharGlyph->m_x, invalidCharGlyph->m_y, invalidCharGlyph->m_width, invalidCharGlyph->m_height, invalidCharGlyph->m_xoffset, invalidCharGlyph->m_yoffset, invalidCharGlyph->m_advance, invalidCharGlyph->m_page, invalidCharGlyph->m_chnl);
 		else if( fontDescFormat == 0 )
@@ -1867,7 +1867,7 @@ int CFontGen::SaveFont(const char *szFile)
 
 
 			if (fontDescFormat == 3)
-				fprintf(f, "%d %d %d %d %d %d %d %d %d\r\n", n, 0, chars[n]->m_width, 0, chars[n]->m_yoffset, chars[n]->m_x, chars[n]->m_y, chars[n]->m_x + chars[n]->m_width, chars[n]->m_y + chars[n]->m_height);
+				fprintf(f, "%d %d %.1f %d %.0f %.0f %.0f %.0f %.0f\r\n", n, 0, chars[n]->m_width / 2.0, 0, floor(chars[n]->m_yoffset / 2.0), floor(chars[n]->m_x / 2.0), floor(chars[n]->m_y / 2.0), floor((chars[n]->m_x + chars[n]->m_width) / 2.0), floor((chars[n]->m_y + chars[n]->m_height) / 2.0));
 			else if( fontDescFormat == 1 )
 				fprintf(f, "    <char id=\"%d\" x=\"%d\" y=\"%d\" width=\"%d\" height=\"%d\" xoffset=\"%d\" yoffset=\"%d\" xadvance=\"%d\" page=\"%d\" chnl=\"%d\" />\r\n", n, chars[n]->m_x, chars[n]->m_y, chars[n]->m_width, chars[n]->m_height, chars[n]->m_xoffset, chars[n]->m_yoffset, chars[n]->m_advance, page, chnl);
 			else if( fontDescFormat == 0 )
@@ -2044,12 +2044,16 @@ int CFontGen::SaveFont(const char *szFile)
 
 		for( unsigned int n = 0; n < pairs.size(); n++ )
 		{
+			// [TBob] Use floating point division instead
+			double aaDouble = aa;
+			double kernDouble = pairs[n].iKernAmount / aaDouble;
+
 			if (fontDescFormat == 3)
-				fprintf(f, "%d %d %d\r\n", pairs[n].wFirst, pairs[n].wSecond, pairs[n].iKernAmount / aa);
+				fprintf(f, "%d %d %.1f\r\n", pairs[n].wFirst, pairs[n].wSecond, kernDouble);
 			else if( fontDescFormat == 1 )
-				fprintf(f, "    <kerning first=\"%d\" second=\"%d\" amount=\"%d\" />\r\n", pairs[n].wFirst, pairs[n].wSecond, pairs[n].iKernAmount/aa);
+				fprintf(f, "    <kerning first=\"%d\" second=\"%d\" amount=\"%.1f\" />\r\n", pairs[n].wFirst, pairs[n].wSecond, kernDouble);
 			else if( fontDescFormat == 0 )
-				fprintf(f, "kerning first=%-3d second=%-3d amount=%-4d\r\n", pairs[n].wFirst, pairs[n].wSecond, pairs[n].iKernAmount/aa);
+				fprintf(f, "kerning first=%-3d second=%-3d amount=%-4f\r\n", pairs[n].wFirst, pairs[n].wSecond, kernDouble);
 			else 
 			{
 #pragma pack(push)

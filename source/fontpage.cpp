@@ -136,7 +136,8 @@ int CFontPage::AddChar(CFontChar *ch, int channel)
 	while( i++ < pageImg->width - img->width - paddingRight - paddingLeft - spacingH )
 	{
 		// Is the character narrow enough to fit?
-		if( img->width + currX + paddingRight + paddingLeft > pageImg->width - spacingH )
+		// [TBob] + 1 to ensure enough space with rounding
+		if( img->width + currX + paddingRight + paddingLeft + 1 > pageImg->width - spacingH )
 		{
 			// Start from the left side again
 			currX = 0;
@@ -181,6 +182,10 @@ int CFontPage::AddChar(CFontChar *ch, int channel)
 					break;
 				}
 			}
+
+			// [TBob] Round up to even
+			currX = (currX + 1) & ~1;
+			cy = (cy + 1) & ~1;
 
 			AddChar(currX, cy, ch, channel);
 
@@ -390,10 +395,15 @@ CFontChar **g_chars = 0;
 struct element { int index; };
 bool operator<(const element &a, const element &b) 
 {
-	// We want to sort the characters from larger to smaller
-	if( g_chars[a.index]->m_height > g_chars[b.index]->m_height ||
-	    (g_chars[a.index]->m_height == g_chars[b.index]->m_height &&
-	     g_chars[a.index]->m_width > g_chars[b.index]->m_width) )
+	// Sort the glyphs from larger to smaller (Disabled)
+	//if( g_chars[a.index]->m_height > g_chars[b.index]->m_height ||
+	//    (g_chars[a.index]->m_height == g_chars[b.index]->m_height &&
+	//     g_chars[a.index]->m_width > g_chars[b.index]->m_width) )
+	//	return true;
+	//return false;
+
+	// [TBob] Sort the glyphs by id
+	if (g_chars[a.index]->m_id < g_chars[b.index]->m_id)
 		return true;
 	return false;
 }

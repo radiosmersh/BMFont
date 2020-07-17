@@ -1661,9 +1661,9 @@ int CFontGen::SaveFont(const char *szFile)
 		fprintf(f, "header\r\n");
 		fprintf(f, "2\r\n");
 		fprintf(f, "%s\r\n", filenameonly.c_str());
-		fprintf(f, "%d\r\n", outWidth);
-		fprintf(f, "%d\r\n", outHeight);
-		fprintf(f, "%d\r\n", fontSize);
+		fprintf(f, "%d\r\n", outWidth / 4);
+		fprintf(f, "%d\r\n", outHeight / 4);
+		fprintf(f, "%d\r\n", fontSize / 4);
 		fprintf(f, "glyphs\r\n");
 	}
 	else if( fontDescFormat == 1 ) 
@@ -1818,7 +1818,7 @@ int CFontGen::SaveFont(const char *szFile)
 	if( invalidCharGlyph )
 	{
 		if (fontDescFormat == 3)
-			fprintf(f, "%d %d %.1f %d %.0f %.1f %.1f %.1f %.1f\r\n", n, 0, invalidCharGlyph->m_width / 2.0, 0, floor(invalidCharGlyph->m_yoffset / 2.0), invalidCharGlyph->m_x / 2.0, floor(invalidCharGlyph->m_y / 2.0), floor((invalidCharGlyph->m_x + invalidCharGlyph->m_width) / 2.0), floor((invalidCharGlyph->m_y + invalidCharGlyph->m_height) / 2.0));
+			fprintf(f, "%d\t%d\t%.1f\t%d\t%.0f\t%.1f\t%.1f\t%.1f\t%.1f\r\n", n, 0, round(invalidCharGlyph->m_width / 4.0), 0, round(invalidCharGlyph->m_yoffset / 4.0), invalidCharGlyph->m_x / 4.0, round(invalidCharGlyph->m_y / 4.0), round((invalidCharGlyph->m_x + invalidCharGlyph->m_width) / 4.0), round((invalidCharGlyph->m_y + invalidCharGlyph->m_height) / 4.0));
 		else if( fontDescFormat == 1 )
 			fprintf(f, "    <char id=\"%d\" x=\"%d\" y=\"%d\" width=\"%d\" height=\"%d\" xoffset=\"%d\" yoffset=\"%d\" xadvance=\"%d\" page=\"%d\" chnl=\"%d\" />\r\n", -1, invalidCharGlyph->m_x, invalidCharGlyph->m_y, invalidCharGlyph->m_width, invalidCharGlyph->m_height, invalidCharGlyph->m_xoffset, invalidCharGlyph->m_yoffset, invalidCharGlyph->m_advance, invalidCharGlyph->m_page, invalidCharGlyph->m_chnl);
 		else if( fontDescFormat == 0 )
@@ -1867,7 +1867,7 @@ int CFontGen::SaveFont(const char *szFile)
 
 
 			if (fontDescFormat == 3)
-				fprintf(f, "%d %d %.1f %d %.0f %.0f %.0f %.0f %.0f\r\n", n, 0, chars[n]->m_width / 2.0, 0, floor(chars[n]->m_yoffset / 2.0), floor(chars[n]->m_x / 2.0), floor(chars[n]->m_y / 2.0), floor((chars[n]->m_x + chars[n]->m_width) / 2.0), floor((chars[n]->m_y + chars[n]->m_height) / 2.0));
+				fprintf(f, "%d\t%d\t%.1f\t%d\t%.0f\t%.0f\t%.0f\t%.0f\t%.0f\r\n", n, 0, chars[n]->m_width / 4.0, 0, round(chars[n]->m_yoffset / 4.0), round(chars[n]->m_x / 4.0), round(chars[n]->m_y / 4.0), round((chars[n]->m_x + chars[n]->m_width) / 4.0), round((chars[n]->m_y + chars[n]->m_height) / 4.0));
 			else if( fontDescFormat == 1 )
 				fprintf(f, "    <char id=\"%d\" x=\"%d\" y=\"%d\" width=\"%d\" height=\"%d\" xoffset=\"%d\" yoffset=\"%d\" xadvance=\"%d\" page=\"%d\" chnl=\"%d\" />\r\n", n, chars[n]->m_x, chars[n]->m_y, chars[n]->m_width, chars[n]->m_height, chars[n]->m_xoffset, chars[n]->m_yoffset, chars[n]->m_advance, page, chnl);
 			else if( fontDescFormat == 0 )
@@ -2049,7 +2049,7 @@ int CFontGen::SaveFont(const char *szFile)
 			double kernDouble = pairs[n].iKernAmount / aaDouble;
 
 			if (fontDescFormat == 3)
-				fprintf(f, "%d %d %.1f\r\n", pairs[n].wFirst, pairs[n].wSecond, kernDouble);
+				fprintf(f, "%d\t%d\t%.1f\r\n", pairs[n].wFirst, pairs[n].wSecond, kernDouble);
 			else if( fontDescFormat == 1 )
 				fprintf(f, "    <kerning first=\"%d\" second=\"%d\" amount=\"%.1f\" />\r\n", pairs[n].wFirst, pairs[n].wSecond, kernDouble);
 			else if( fontDescFormat == 0 )
@@ -2415,7 +2415,7 @@ int CFontGen::LoadConfiguration(const char *filename)
 	if( _outWidth < 1 ) _outWidth = 1;
 	if( _outHeight < 1 ) _outHeight = 1;
 	if( _outBitDepth != 8 && _outBitDepth != 32 ) _outBitDepth = 8;
-	if( _fontDescFormat < 0 || _fontDescFormat > 2 ) _fontDescFormat = 0;
+	if( _fontDescFormat < 0 || _fontDescFormat > 3 ) _fontDescFormat = 3;
     
 	pos = _textureFormat.find_last_not_of(" \t\n\r");
 	if( pos != string::npos ) _textureFormat.erase(pos + 1);

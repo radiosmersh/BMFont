@@ -1,7 +1,11 @@
 .svn/
-source/Release/
-source/Debug/
-source/.vs/
+source/Release
+source/Debug
+source/.vs
+source/.vscode
+source/trace_generate.txt
+source
 bmfont_com/Debug/
 bmfont_com/Release/
 bmfont_com/.vs/
+.vs

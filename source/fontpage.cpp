@@ -183,9 +183,9 @@ int CFontPage::AddChar(CFontChar *ch, int channel)
 				}
 			}
 
-			// [radiosmersh] Round up to the nearest number divisible by 4
-			currX = (currX + 4) & ~3;
-			cy = (cy + 4) & ~3;
+			// [TBob] Round up to even
+			currX = (currX + 1) & ~1;
+			cy = (cy + 1) & ~1;
 
 			AddChar(currX, cy, ch, channel);
 
